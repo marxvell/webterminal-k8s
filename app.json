@@ -1,0 +1,9 @@
+  
+{
+    "name": "web-sshrdp",
+    "description": "Deploy webterminal on Heroku.",
+    "keywords": ["webterminal"],
+    "website": "https://github.com/marxvell/webterminal-heroku",
+    "repository": "https://github.com/marxvell/webterminal-heroku",
+    "stack": "container"
+}

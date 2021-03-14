@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webterminal
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: webterminal
+  template:
+    metadata:
+      labels:
+        app: webterminal
+    spec:
+      containers:
+      - image: webterminal/webterminal:latest
+        name: webterminal
+        ports:
+        - containerPort: 80
+
+------------------
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: webterminal
+  annotations:
+    dev.okteto.com/auto-ingress: "true"
+  labels:
+    app: webterminal
+spec:
+  type: ClusterIP  
+  ports:
+  - name: "webterminal-port"
+    port: 80
+  selector:
+    app: webterminal
